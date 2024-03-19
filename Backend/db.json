@@ -1,0 +1,12 @@
+{
+  "ventas": [
+    {
+      "id": "530b",
+      "descripcion": "Cuadro personalizado: Pintura al óleo de 60x80 cm, estilo abstracto, predominio de colores cálidos, textura suave. Firmado por el artista.",
+      "fecha": "2024-03-18",
+      "valorCLP": "1000",
+      "valorUSD": "8.5",
+      "pagado": true
+    }
+  ]
+}

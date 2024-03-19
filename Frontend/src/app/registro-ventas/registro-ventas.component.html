@@ -1,0 +1,59 @@
+<h1 class="text-center mt-5 mb-5">Formulario Registro de Ventas</h1>
+
+<div class="container-fluid  col-lg-8 border p-4 shadow">
+    <form [formGroup]="ventaForm" (ngSubmit)="enviarDatos()">
+        <div class="mb-3">
+            <button class="btn btn-info" routerLink="/">Volver atras</button>
+
+        </div>
+        <div class="mb-3">
+            <label for="Descripcion" class="form-label" maxlength="200">Descripción</label>
+            <div class="input-group">
+                <textarea class="form-control" id="Descripcion" aria-label="With textarea" formControlName="descripcion"></textarea>
+            </div>
+            <div *ngIf="ventaForm.controls['descripcion'].errors?.['maxlength']">
+                <span class="text-danger">La descripción no puede exceder los 200 caracteres.</span>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <div class="input-group">
+                    <input type="date" class="form-control" id="fecha" aria-describedby="basic-addon3 basic-addon4" formControlName="fecha">
+                </div>
+            </div>
+            
+    
+            <div class="col mb-3">
+                <label for="valorCLP" class="form-label">Valor CLP</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="valorCLP" aria-describedby="basic-addon3 basic-addon4" formControlName="valorCLP">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="valorUSD" class="form-label">Valor USD</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="valorUSD" aria-describedby="basic-addon3 basic-addon4" formControlName="valorUSD">
+                </div>
+            </div>
+            <div class="col mb-3">
+                <label class="form-label" for="pagado">Pagado</label>
+            <select class="form-select" id="pagado" formControlName="pagado">
+                <option selected>Elegir una opcion</option>
+                <option value=true>Si</option>
+                <option value=false>No</option>
+            </select>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-success mt-3  btn-block" [disabled]="ventaForm.controls['descripcion'].errors?.['maxlength']">Registrar </button>
+    
+        </div>
+    </form>
+    
+
+
+</div>
+

@@ -1,0 +1,71 @@
+<h1 class="text-center mt-5 mb-5">Detalle Registro de Ventas</h1>
+<div class="container-fluid d-flex justify-content-center col-lg-8 border p-4 shadow">
+    <div class="row">
+        <div class="col">
+            <button class=" btn btn-info" routerLink="/">Volver atras</button>
+
+        
+
+    </div>   
+    
+        <table class="table  ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descripcion de la venta</th>
+                <th scope="col">Fecha de venta</th>
+                <th scope="col">Valor en CLP</th>
+                <th scope="col">Valor en dolar</th>
+                <th scope="col">Pagado</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr >
+                <th >{{ ventaId}}</th>
+                <td>{{ data?.descripcion}}</td>
+                <td>{{ fechaFormateada}}</td>
+                <td>${{ data?.valorCLP}}</td>
+                <td>${{ data?.valorUSD}}</td>
+                <td>{{ booleanFormateado}}</td>
+                <td> <button (click)="irADetalleVenta(ventaId)"  type="button" class="btn btn-primary" routerLink="/editar-ventas">Editar</button>
+                </td>
+                <td>
+                    <button (click)="openModal()" type="button" class="btn btn-danger" data-toggle="modal" 
+                        >Eliminar</button>
+                </td>
+                
+
+            </tr>
+
+        </tbody>
+    </table>
+    
+    
+</div>
+
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar eliminación</h5>
+                
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar esta venta?
+                <p class="mt-5">Descripción: {{ data?.descripcion }}</p>
+                <p>Fecha: {{ fechaFormateada }}</p>
+                <p>Valor en CLP: ${{ data?.valorCLP }}</p>
+                <p>Valor en USD: ${{ data?.valorUSD }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="eliminarVenta(ventaId)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

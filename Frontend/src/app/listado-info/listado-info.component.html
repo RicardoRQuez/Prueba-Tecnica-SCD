@@ -1,0 +1,31 @@
+<h1 class="text-center mt-5 mb-5">Registro de Ventas</h1>
+<div class="container-fluid d-flex justify-content-center col-lg-8 border p-4 shadow">
+    <button class="btn btn-success" routerLink="/registro-ventas">Registrar Venta</button>
+
+    <table class="table  ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descripcion de la venta</th>
+                <th scope="col">Ver Detalles</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of data; track item.id) {
+            <tr>      
+                <th >{{ item.id }}</th>
+                <td>{{ item.descripcion}}</td>
+                <td>
+                        <button (click)="irADetalleVenta(item.id)"type="button" class="btn btn-info">Ver Detalles</button>
+                </td>   
+            </tr>
+        } @empty {
+            <div class="alert alert-primary mt-5" role="alert">
+                No se encontraron  ventas registradas en este momento.
+              </div>
+          }
+        </tbody>
+    </table>
+</div>
+
